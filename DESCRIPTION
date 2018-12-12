@@ -1,0 +1,8 @@
+Package: kwb.kuras
+Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
+Depends: kwb.ogre, kwb.db, kwb.plot, kwb.logger
+Author: Hauke Sonnenberg
+Version: 0.0.99
+License: GPL
+Title: Interface to KURAS database
+Description: Interface to KURAS database, DEVELOPMENT VERSION!!!

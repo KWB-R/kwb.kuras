@@ -1,0 +1,76 @@
+# kurasReferencesToRIS ---------------------------------------------------------
+kurasReferencesToRIS <- structure(
+  function # kurasReferencesToRIS
+### kurasReferencesToRIS
+(
+  references
+)
+{
+  et.al.pattern <- " et al\\."
+
+  references$rNachname <- hsTrim(as.character(references$rNachname))
+  references$rVorname <- hsTrim(as.character(references$rVorname))
+  
+  et.al.indices <- unique(c(grep(et.al.pattern, references$rNachname),
+                            grep(et.al.pattern, references$rVorname)))
+  
+  references$rNachname <- gsub(et.al.pattern, "", references$rNachname)
+  references$rVorname <- gsub(et.al.pattern, "", references$rVorname)
+  
+  references$rVorname[is.na(references$rVorname)] <- ""
+  
+  references$rBeschreibung <- hsTrim(as.character(references$rBeschreibung))
+  references$rBeschreibung[is.na(references$rBeschreibung)] <- ""
+  
+  references$rZusatz <- hsTrim(as.character(references$rZusatz))
+  references$rZusatz[is.na(references$rZusatz)] <- ""
+  
+  references$AU <- paste(references$rNachname,
+                         references$rVorname, sep=",")
+  references$A2 <- ""
+  references$A2[et.al.indices] <- "N.,N."
+  
+  references$TY <- .referenceType(references$rArt)
+  
+  risText <- paste("TY  -", references$TY,
+                   "\nAU  -", references$AU,       
+                   "\nA2  -", references$A2,
+                   "\nTI  -", references$rTitel,
+                   "\nT2  -", references$rTitelMedium,
+                   "\nT3  -", references$rZusatz,
+                   "\nPY  -", references$rJahr,
+                   "\nAB  -", references$rBeschreibung,
+                   "\nLB  -", "KURAS (R)",
+                   "\nER  -\n", 
+                   collapse = "\n")
+  
+  risFile <- file.path(tempdir(), "kuras.ris")
+  writeLines(risText, risFile)
+  
+  ### Open the temporary folder to which the file was written
+  # hsOpenWindowsExplorer(tempdir())
+  
+}, ex = function() {
+  
+  ### Get all entries from KURAS table "tblReferenz"
+  references <- kuras_referenz()
+  
+  ### Generate RIS-file in temporary folder and open show the file in the file 
+  # explorer
+  kurasReferencesToRIS(references)
+})
+
+# .referenceType ---------------------------------------------------------------
+.referenceType <- function(rArt)
+{
+  referenceType <- rep("GEN", length(rArt))
+  referenceType[grep("artikel", rArt, ignore.case = TRUE)] <- "JOUR"
+  referenceType[grep("buch", rArt, ignore.case = TRUE)] <- "BOOK"
+  referenceType[grep("diplomarbeit|thesis|dissertation", rArt, ignore.case = TRUE)] <- "THES"
+  referenceType[grep("bericht", rArt, ignore.case = TRUE)] <- "RPRT" 
+  referenceType[grep("government", rArt, ignore.case = TRUE)] <- "GOVDOC"     
+  referenceType[grep("internet", rArt, ignore.case = TRUE)] <- "ELEC"
+  referenceType[grep("brosch", rArt, ignore.case = TRUE)] <- "PAMP"
+  referenceType[grep("reihe", rArt, ignore.case = TRUE)] <- "SER"
+  referenceType
+}
