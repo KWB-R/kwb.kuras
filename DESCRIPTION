@@ -6,3 +6,8 @@ Version: 0.0.99
 License: GPL
 Title: Interface to KURAS database
 Description: Interface to KURAS database, DEVELOPMENT VERSION!!!
+Remotes:  
+    github::kwb-r/kwb.db,
+    github::kwb-r/kwb.logger,
+    github::kwb-r/kwb.plot,
+    github::kwb-r/kwb.ogre
