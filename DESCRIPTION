@@ -1,13 +1,26 @@
 Package: kwb.kuras
-Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
-Depends: kwb.ogre, kwb.db, kwb.plot, kwb.logger
-Author: Hauke Sonnenberg
-Version: 0.0.99
-License: GPL
 Title: Interface to KURAS database
+Version: 0.0.99
+Authors@R: 
+    c(person(given = "Hauke",
+             family = "Sonnenberg",
+             role = c("aut", "cre"),
+             email = "hauke.sonnenberg@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0001-9134-2871")),
+      person(given = "Kompetenzzentrum Wasser Berlin gGmbH",
+             role = "cph"))
 Description: Interface to KURAS database, DEVELOPMENT VERSION!!!
-Remotes:  
+License: GPL
+URL: https://github.com/KWB-R/kwb.kuras
+BugReports: https://github.com/KWB-R/kwb.kuras/issues
+Depends: 
+    kwb.ogre,
+    kwb.db,
+    kwb.plot,
+    kwb.logger
+Remotes: 
     github::kwb-r/kwb.db,
     github::kwb-r/kwb.logger,
     github::kwb-r/kwb.plot,
     github::kwb-r/kwb.ogre
+Encoding: UTF-8
