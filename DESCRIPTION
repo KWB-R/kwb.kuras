@@ -10,7 +10,7 @@ Authors@R:
       person(given = "Kompetenzzentrum Wasser Berlin gGmbH",
              role = "cph"))
 Description: Interface to KURAS database, DEVELOPMENT VERSION!!!
-License: GPL
+License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.kuras
 BugReports: https://github.com/KWB-R/kwb.kuras/issues
 Depends: 
