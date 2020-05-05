@@ -5,95 +5,98 @@
 
 # kurasReferencesToRIS ---------------------------------------------------------
 
-#' kurasReferencesToRIS
+#' Write References to file in RIS (Research Information Systems) Format
 #' 
-#' kurasReferencesToRIS
-#' 
-#' @return Open the temporary folder to which the file was written
-#' 
+#' @param references data frame with columns \code{rNachname}, \code{rVorname}, 
+#'   \code{rTitel}, \code{Medium}, \code{rZusatz}, \code{rJahr}, 
+#'   \code{rBeschreibung} 
+#' @return path to the file created in the tempdir() folder
 #' @examples 
+#' \dontrun{
+#' # Get all entries from KURAS table "tblReferenz"
+#' references <- kuras_referenz()
 #'   
-#'   ### Get all entries from KURAS table "tblReferenz"
-#'   references <- kuras_referenz()
-#'   
-#'   ### Generate RIS-file in temporary folder and open show the file in the file 
-#'   # explorer
-#'   kurasReferencesToRIS(references)
-#'   
+#' # Generate RIS-file in temporary folder
+#' file <- kurasReferencesToRIS(references)
 #' 
-kurasReferencesToRIS <- structure(
-  function # kurasReferencesToRIS
-### kurasReferencesToRIS
-(
-  references
-)
+#' # Open the file in the Windows Explorer
+#' # kwb.utils::hsOpenWindowsExplorer(file)
+#' }
+#' 
+kurasReferencesToRIS <- function(references)
 {
   et.al.pattern <- " et al\\."
 
-  references$rNachname <- kwb.utils::hsTrim(as.character(references$rNachname))
-  references$rVorname <- kwb.utils::hsTrim(as.character(references$rVorname))
+  trimAsChar <- function(x) kwb.utils::hsTrim(as.character(x))
   
-  et.al.indices <- unique(c(grep(et.al.pattern, references$rNachname),
-                            grep(et.al.pattern, references$rVorname)))
+  clearAtAl <- function(x) gsub(et.al.pattern, "", x)
   
-  references$rNachname <- gsub(et.al.pattern, "", references$rNachname)
-  references$rVorname <- gsub(et.al.pattern, "", references$rVorname)
+  clearNA <- function(x) {
+    x[is.na(x)] <- ""
+    x
+  }
   
-  references$rVorname[is.na(references$rVorname)] <- ""
+  references$rNachname <- trimAsChar(references$rNachname)
+  references$rVorname <- trimAsChar(references$rVorname)
   
-  references$rBeschreibung <- kwb.utils::hsTrim(as.character(references$rBeschreibung))
-  references$rBeschreibung[is.na(references$rBeschreibung)] <- ""
+  et.al.indices <- unique(c(
+    grep(et.al.pattern, references$rNachname),
+    grep(et.al.pattern, references$rVorname)
+  ))
   
-  references$rZusatz <- kwb.utils::hsTrim(as.character(references$rZusatz))
-  references$rZusatz[is.na(references$rZusatz)] <- ""
+  references$rNachname <- clearAtAl(references$rNachname)
   
-  references$AU <- paste(references$rNachname,
-                         references$rVorname, sep=",")
+  references$rVorname <- clearNA(clearAtAl(references$rVorname))
+  
+  references$rBeschreibung <- clearNA(trimAsChar(references$rBeschreibung))
+  
+  references$rZusatz <- clearNA(trimAsChar(references$rZusatz))
+  
+  references$AU <- paste(references$rNachname, references$rVorname, sep = ",")
+  
   references$A2 <- ""
   references$A2[et.al.indices] <- "N.,N."
   
   references$TY <- .referenceType(references$rArt)
   
-  risText <- paste("TY  -", references$TY,
-                   "\nAU  -", references$AU,       
-                   "\nA2  -", references$A2,
-                   "\nTI  -", references$rTitel,
-                   "\nT2  -", references$rTitelMedium,
-                   "\nT3  -", references$rZusatz,
-                   "\nPY  -", references$rJahr,
-                   "\nAB  -", references$rBeschreibung,
-                   "\nLB  -", "KURAS (R)",
-                   "\nER  -\n", 
-                   collapse = "\n")
+  risText <- paste(
+    "TY  -", references$TY,
+    "\nAU  -", references$AU,       
+    "\nA2  -", references$A2,
+    "\nTI  -", references$rTitel,
+    "\nT2  -", references$rTitelMedium,
+    "\nT3  -", references$rZusatz,
+    "\nPY  -", references$rJahr,
+    "\nAB  -", references$rBeschreibung,
+    "\nLB  -", "KURAS (R)",
+    "\nER  -\n", 
+    collapse = "\n"
+  )
   
   risFile <- file.path(tempdir(), "kuras.ris")
+  
   writeLines(risText, risFile)
   
-  ### Open the temporary folder to which the file was written
-  # hsOpenWindowsExplorer(tempdir())
-  
-}, ex = function() {
-  
-  ### Get all entries from KURAS table "tblReferenz"
-  references <- kuras_referenz()
-  
-  ### Generate RIS-file in temporary folder and open show the file in the file 
-  # explorer
-  kurasReferencesToRIS(references)
-})
+  risFile
+}
 
-# ? ----------------------------------------------------------------------------
-
-.referenceType <- function(rArt) {
-    referenceType <- rep("GEN", length(rArt))
-    referenceType[grep("artikel", rArt, ignore.case = TRUE)] <- "JOUR"
-    referenceType[grep("buch", rArt, ignore.case = TRUE)] <- "BOOK"
-    referenceType[grep("diplomarbeit|thesis|dissertation", rArt, 
-        ignore.case = TRUE)] <- "THES"
-    referenceType[grep("bericht", rArt, ignore.case = TRUE)] <- "RPRT"
-    referenceType[grep("government", rArt, ignore.case = TRUE)] <- "GOVDOC"
-    referenceType[grep("internet", rArt, ignore.case = TRUE)] <- "ELEC"
-    referenceType[grep("brosch", rArt, ignore.case = TRUE)] <- "PAMP"
-    referenceType[grep("reihe", rArt, ignore.case = TRUE)] <- "SER"
-    referenceType
+# .referenceType ---------------------------------------------------------------
+.referenceType <- function(rArt)
+{
+  setWhereMatches <- function(x, pattern, value) {
+    x[grep(pattern, rArt, ignore.case = TRUE)] <- value
+    x
+  }
+  
+  result <- rep("GEN", length(rArt))
+  result <- setWhereMatches(result, "artikel", "JOUR")
+  result <- setWhereMatches(result, "buch", "BOOK")
+  result <- setWhereMatches(result, "diplomarbeit|thesis|dissertation", "THES")
+  result <- setWhereMatches(result, "bericht", "RPRT")
+  result <- setWhereMatches(result, "government", "GOVDOC")
+  result <- setWhereMatches(result, "internet", "ELEC")
+  result <- setWhereMatches(result, "brosch", "PAMP")
+  result <- setWhereMatches(result, "reihe", "SER")
+  
+  result
 }
