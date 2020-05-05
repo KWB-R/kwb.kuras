@@ -13,15 +13,17 @@ Description: Interface to KURAS database, DEVELOPMENT VERSION!!!
 License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.kuras
 BugReports: https://github.com/KWB-R/kwb.kuras/issues
-Depends: 
-    kwb.ogre,
+Imports:
     kwb.db,
+    kwb.monitoring,
+    kwb.ogre,
     kwb.plot,
-    kwb.logger
+    kwb.utils
 Remotes: 
     github::kwb-r/kwb.db,
     github::kwb-r/kwb.logger,
+    github::kwb-r/kwb.ogre,
     github::kwb-r/kwb.plot,
-    github::kwb-r/kwb.ogre
+    github::kwb-r/kwb.utils
 Encoding: UTF-8
 RoxygenNote: 7.1.0

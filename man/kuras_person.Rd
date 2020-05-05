@@ -82,7 +82,9 @@ kuras_person(
 
 \item{orderBy_pnTelefon}{order by field \emph{pnTelefon}?}
 
-\item{\dots}{additional arguments passed to \code{\link{selectFromTable}}}
+\item{db}{name of ODBC data source, default: \code{"KURAS"}}
+
+\item{\dots}{additional arguments passed to \code{kwb.db::selectFromTable}}
 }
 \description{
 \code{select} and filter records from tblperson

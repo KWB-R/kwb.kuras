@@ -2,13 +2,16 @@
 % Please edit documentation in R/kurasMonitoring.R
 \name{readKurasSamplerFileByName}
 \alias{readKurasSamplerFileByName}
-\title{readKurasSamplerFileByName}
+\title{Read KURAS Sampler File by Name}
 \usage{
 readKurasSamplerFileByName(samplerFile, bottlesToConsider = NA)
 }
 \arguments{
-\item{bottlesToConsider}{arguments passed to \code{\link{generateSampleTimesFromFlaschenbericht}}}
+\item{samplerFile}{path to file written by autosampler}
+
+\item{bottlesToConsider}{arguments passed to
+\code{\link{generateSampleTimesFromFlaschenbericht}}}
 }
 \description{
-readKurasSamplerFileByName
+Read KURAS Sampler File by Name
 }

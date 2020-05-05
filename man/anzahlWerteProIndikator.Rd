@@ -10,6 +10,14 @@ anzahlWerteProIndikator(
   indikatorwerte = kuras_indikatorwert()
 )
 }
+\arguments{
+\item{effekte}{data frame as returned by \code{\link{kuras_effekt}}}
+
+\item{indikatoren}{data frame as returned by \code{\link{kuras_indikator}}}
+
+\item{indikatorwerte}{data frame as returned by
+\code{\link{kuras_indikatorwert}}}
+}
 \value{
 data frame mit Spalten \emph{iID} (Indikator-ID), \emph{iEffektID} 
   (Effekt-ID),\emph{iName} (Indikator-Name), \emph{x} (Anzahl Werte fuer den

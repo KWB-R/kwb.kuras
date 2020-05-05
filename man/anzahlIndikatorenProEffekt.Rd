@@ -9,9 +9,14 @@ anzahlIndikatorenProEffekt(
   effekte = kuras_effekt()
 )
 }
+\arguments{
+\item{indikatoren}{data frame as returned by \code{\link{kuras_indikator}}}
+
+\item{effekte}{data frame as returned by \code{\link{kuras_effekt}}}
+}
 \value{
-data frame mit Spalten \emph{eID} (Effekt-ID), \emph{eName} (Effekt-Name),
-  \emph{x} (Anzahl Indikatoren fuer den Effekt).
+data frame mit Spalten \emph{eID} (Effekt-ID), \emph{eName}
+  (Effekt-Name), \emph{x} (Anzahl Indikatoren fuer den Effekt).
 }
 \description{
 Anzahl an Indikatoren pro Effekt

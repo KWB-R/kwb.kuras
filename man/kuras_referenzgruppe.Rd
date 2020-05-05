@@ -28,7 +28,9 @@ kuras_referenzgruppe(
 
 \item{orderBy_rgID}{order by field \emph{rgID}?}
 
-\item{\dots}{additional arguments passed to \code{\link{selectFromTable}}}
+\item{db}{name of ODBC data source, default: \code{"KURAS"}}
+
+\item{\dots}{additional arguments passed to \code{kwb.db::selectFromTable}}
 }
 \description{
 \code{select} and filter records from tblreferenzgruppe

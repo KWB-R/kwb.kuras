@@ -226,7 +226,9 @@ kuras_anlageoderstudie(
 
 \item{orderBy_aIstStudie}{order by field \emph{aIstStudie}?}
 
-\item{\dots}{additional arguments passed to \code{\link{selectFromTable}}}
+\item{db}{name of ODBC data source, default: \code{"KURAS"}}
+
+\item{\dots}{additional arguments passed to \code{kwb.db::selectFromTable}}
 }
 \description{
 \code{select} and filter records from tblanlageoderstudie

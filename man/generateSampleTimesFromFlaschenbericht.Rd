@@ -2,7 +2,7 @@
 % Please edit documentation in R/kurasMonitoring.R
 \name{generateSampleTimesFromFlaschenbericht}
 \alias{generateSampleTimesFromFlaschenbericht}
-\title{generateSampleTimesFromFlaschenbericht}
+\title{Generate Sample Times From Flaschenbericht}
 \usage{
 generateSampleTimesFromFlaschenbericht(
   content,
@@ -11,10 +11,16 @@ generateSampleTimesFromFlaschenbericht(
 )
 }
 \arguments{
-\item{content}{data frame with columns \emph{timeFrom}, \emph{timeTo}, \emph{pnSoll},
-\emph{pnIst},}
+\item{content}{data frame with columns \code{timeFrom}, \code{timeTo},
+\code{pnSoll}, \code{pnIst},}
+
+\item{text.success}{text to be put in output column \code{result} in case of
+success}
+
+\item{text.failure}{text to be put in output column \code{result} in case of
+failure}
 }
 \description{
-generate equidistant sample times from the informatin given in the
+Generate equidistant sample times from the informatin given in the
   "Flaschenbericht"
 }

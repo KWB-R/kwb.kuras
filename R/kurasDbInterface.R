@@ -24,7 +24,8 @@
 #' @param orderBy_aeName order by field \emph{aeName}?
 #' @param orderBy_aeEinheit order by field \emph{aeEinheit}?
 #' @param orderBy_aeBeschreibung order by field \emph{aeBeschreibung}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"}
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_anlageeigenschaft <- function # select records from tblanlageeigenschaft
 ### select and filter records from tblanlageeigenschaft
@@ -61,7 +62,7 @@ kuras_anlageeigenschaft <- function # select records from tblanlageeigenschaft
   ### order by field \emph{aeBeschreibung}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -82,7 +83,7 @@ kuras_anlageeigenschaft <- function # select records from tblanlageeigenschaft
     orderBy_aeBeschreibung = orderBy_aeBeschreibung
   )
 
-  selectFromTable(db, 'tblanlageeigenschaft', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblanlageeigenschaft', arguments, ...)
 }
 
 # kuras_anlageeigenschaftswert -------------------------------------------------
@@ -109,7 +110,8 @@ kuras_anlageeigenschaft <- function # select records from tblanlageeigenschaft
 #' @param orderBy_awAnlageEigenschaftID order by field \emph{awAnlageEigenschaftID}?
 #' @param orderBy_awZahlwert order by field \emph{awZahlwert}?
 #' @param orderBy_awBeschreibung order by field \emph{awBeschreibung}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_anlageeigenschaftswert <- function # select records from tblanlageeigenschaftswert
 ### select and filter records from tblanlageeigenschaftswert
@@ -152,7 +154,7 @@ kuras_anlageeigenschaftswert <- function # select records from tblanlageeigensch
   ### order by field \emph{awBeschreibung}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -176,7 +178,7 @@ kuras_anlageeigenschaftswert <- function # select records from tblanlageeigensch
     orderBy_awBeschreibung = orderBy_awBeschreibung
   )
 
-  selectFromTable(db, 'tblanlageeigenschaftswert', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblanlageeigenschaftswert', arguments, ...)
 }
 
 # kuras_anlageoderstudie -------------------------------------------------------
@@ -257,7 +259,8 @@ kuras_anlageeigenschaftswert <- function # select records from tblanlageeigensch
 #' @param orderBy_aKoordinatensystem order by field \emph{aKoordinatensystem}?
 #' @param orderBy_aReferenzGruppeID order by field \emph{aReferenzGruppeID}?
 #' @param orderBy_aIstStudie order by field \emph{aIstStudie}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"}
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_anlageoderstudie <- function # select records from tblanlageoderstudie
 ### select and filter records from tblanlageoderstudie
@@ -408,7 +411,7 @@ kuras_anlageoderstudie <- function # select records from tblanlageoderstudie
   ### order by field \emph{aIstStudie}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -486,7 +489,7 @@ kuras_anlageoderstudie <- function # select records from tblanlageoderstudie
     orderBy_aIstStudie = orderBy_aIstStudie
   )
 
-  selectFromTable(db, 'tblanlageoderstudie', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblanlageoderstudie', arguments, ...)
 }
 
 # kuras_effekt -----------------------------------------------------------------
@@ -507,7 +510,8 @@ kuras_anlageoderstudie <- function # select records from tblanlageoderstudie
 #' @param orderBy_eID order by field \emph{eID}?
 #' @param orderBy_eName order by field \emph{eName}?
 #' @param orderBy_eBeschreibung order by field \emph{eBeschreibung}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_effekt <- function # select records from tbleffekt
 ### select and filter records from tbleffekt
@@ -538,7 +542,7 @@ kuras_effekt <- function # select records from tbleffekt
   ### order by field \emph{eBeschreibung}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -556,7 +560,7 @@ kuras_effekt <- function # select records from tbleffekt
     orderBy_eBeschreibung = orderBy_eBeschreibung
   )
 
-  selectFromTable(db, 'tbleffekt', arguments, ...)
+  kwb.db::selectFromTable(db, 'tbleffekt', arguments, ...)
 }
 
 # kuras_indikator --------------------------------------------------------------
@@ -592,7 +596,8 @@ kuras_effekt <- function # select records from tbleffekt
 #' @param orderBy_iAngelegtAm order by field \emph{iAngelegtAm}?
 #' @param orderBy_iAngelegtVonPersonID order by field \emph{iAngelegtVonPersonID}?
 #' @param orderBy_iGeaendert order by field \emph{iGeaendert}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_indikator <- function # select records from tblindikator
 ### select and filter records from tblindikator
@@ -653,7 +658,7 @@ kuras_indikator <- function # select records from tblindikator
   ### order by field \emph{iGeaendert}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -686,7 +691,7 @@ kuras_indikator <- function # select records from tblindikator
     orderBy_iGeaendert = orderBy_iGeaendert
   )
 
-  selectFromTable(db, 'tblindikator', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblindikator', arguments, ...)
 }
 
 # kuras_indikatorwert ----------------------------------------------------------
@@ -737,7 +742,8 @@ kuras_indikator <- function # select records from tblindikator
 #' @param orderBy_iwZeitbezugBeginn order by field \emph{iwZeitbezugBeginn}?
 #' @param orderBy_iwZeitbezugEnde order by field \emph{iwZeitbezugEnde}?
 #' @param orderBy_iwErhebungsmethode order by field \emph{iwErhebungsmethode}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_indikatorwert <- function # select records from tblindikatorwert
 ### select and filter records from tblindikatorwert
@@ -828,7 +834,7 @@ kuras_indikatorwert <- function # select records from tblindikatorwert
   ### order by field \emph{iwErhebungsmethode}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -876,7 +882,7 @@ kuras_indikatorwert <- function # select records from tblindikatorwert
     orderBy_iwErhebungsmethode = orderBy_iwErhebungsmethode
   )
 
-  selectFromTable(db, 'tblindikatorwert', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblindikatorwert', arguments, ...)
 }
 
 # kuras_institution ------------------------------------------------------------
@@ -903,7 +909,8 @@ kuras_indikatorwert <- function # select records from tblindikatorwert
 #' @param orderBy_inKurzname order by field \emph{inKurzname}?
 #' @param orderBy_inAdresse order by field \emph{inAdresse}?
 #' @param orderBy_inBeschreibung order by field \emph{inBeschreibung}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"}
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_institution <- function # select records from tblinstitution
 ### select and filter records from tblinstitution
@@ -946,7 +953,7 @@ kuras_institution <- function # select records from tblinstitution
   ### order by field \emph{inBeschreibung}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -970,7 +977,7 @@ kuras_institution <- function # select records from tblinstitution
     orderBy_inBeschreibung = orderBy_inBeschreibung
   )
 
-  selectFromTable(db, 'tblinstitution', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblinstitution', arguments, ...)
 }
 
 # kuras_kommentar --------------------------------------------------------------
@@ -1000,7 +1007,8 @@ kuras_institution <- function # select records from tblinstitution
 #' @param orderBy_kBezugstabelle order by field \emph{kBezugstabelle}?
 #' @param orderBy_kDatensatzID order by field \emph{kDatensatzID}?
 #' @param orderBy_kKommentar order by field \emph{kKommentar}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_kommentar <- function # select records from tblkommentar
 ### select and filter records from tblkommentar
@@ -1049,7 +1057,7 @@ kuras_kommentar <- function # select records from tblkommentar
   ### order by field \emph{kKommentar}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1076,7 +1084,7 @@ kuras_kommentar <- function # select records from tblkommentar
     orderBy_kKommentar = orderBy_kKommentar
   )
 
-  selectFromTable(db, 'tblkommentar', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblkommentar', arguments, ...)
 }
 
 # kuras_koordinatensystem ------------------------------------------------------
@@ -1094,7 +1102,8 @@ kuras_kommentar <- function # select records from tblkommentar
 #' @param orderBy ORDER BY clause of SQL expression
 #' @param orderBy_koID order by field \emph{koID}?
 #' @param orderBy_koName order by field \emph{koName}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_koordinatensystem <- function # select records from tblkoordinatensystem
 ### select and filter records from tblkoordinatensystem
@@ -1119,7 +1128,7 @@ kuras_koordinatensystem <- function # select records from tblkoordinatensystem
   ### order by field \emph{koName}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1134,7 +1143,7 @@ kuras_koordinatensystem <- function # select records from tblkoordinatensystem
     orderBy_koName = orderBy_koName
   )
 
-  selectFromTable(db, 'tblkoordinatensystem', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblkoordinatensystem', arguments, ...)
 }
 
 # kuras_massnahmeebene ---------------------------------------------------------
@@ -1155,7 +1164,8 @@ kuras_koordinatensystem <- function # select records from tblkoordinatensystem
 #' @param orderBy_meID order by field \emph{meID}?
 #' @param orderBy_meName order by field \emph{meName}?
 #' @param orderBy_meBeschreibung order by field \emph{meBeschreibung}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_massnahmeebene <- function # select records from tblmassnahmeebene
 ### select and filter records from tblmassnahmeebene
@@ -1186,7 +1196,7 @@ kuras_massnahmeebene <- function # select records from tblmassnahmeebene
   ### order by field \emph{meBeschreibung}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1204,7 +1214,7 @@ kuras_massnahmeebene <- function # select records from tblmassnahmeebene
     orderBy_meBeschreibung = orderBy_meBeschreibung
   )
 
-  selectFromTable(db, 'tblmassnahmeebene', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblmassnahmeebene', arguments, ...)
 }
 
 # kuras_massnahmenkategorie ----------------------------------------------------
@@ -1222,7 +1232,8 @@ kuras_massnahmeebene <- function # select records from tblmassnahmeebene
 #' @param orderBy ORDER BY clause of SQL expression
 #' @param orderBy_mkID order by field \emph{mkID}?
 #' @param orderBy_mkName order by field \emph{mkName}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_massnahmenkategorie <- function # select records from tblmassnahmenkategorie
 ### select and filter records from tblmassnahmenkategorie
@@ -1247,7 +1258,7 @@ kuras_massnahmenkategorie <- function # select records from tblmassnahmenkategor
   ### order by field \emph{mkName}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1262,7 +1273,7 @@ kuras_massnahmenkategorie <- function # select records from tblmassnahmenkategor
     orderBy_mkName = orderBy_mkName
   )
 
-  selectFromTable(db, 'tblmassnahmenkategorie', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblmassnahmenkategorie', arguments, ...)
 }
 
 # kuras_massnahmetyp -----------------------------------------------------------
@@ -1286,7 +1297,8 @@ kuras_massnahmenkategorie <- function # select records from tblmassnahmenkategor
 #' @param orderBy_mName order by field \emph{mName}?
 #' @param orderBy_mBeschreibung order by field \emph{mBeschreibung}?
 #' @param orderBy_mMassnahmenKategorieID order by field \emph{mMassnahmenKategorieID}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_massnahmetyp <- function # select records from tblmassnahmetyp
 ### select and filter records from tblmassnahmetyp
@@ -1323,7 +1335,7 @@ kuras_massnahmetyp <- function # select records from tblmassnahmetyp
   ### order by field \emph{mMassnahmenKategorieID}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1344,7 +1356,7 @@ kuras_massnahmetyp <- function # select records from tblmassnahmetyp
     orderBy_mMassnahmenKategorieID = orderBy_mMassnahmenKategorieID
   )
 
-  selectFromTable(db, 'tblmassnahmetyp', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblmassnahmetyp', arguments, ...)
 }
 
 # kuras_person -----------------------------------------------------------------
@@ -1377,7 +1389,8 @@ kuras_massnahmetyp <- function # select records from tblmassnahmetyp
 #' @param orderBy_pnInstitutionID order by field \emph{pnInstitutionID}?
 #' @param orderBy_pnAdresse order by field \emph{pnAdresse}?
 #' @param orderBy_pnTelefon order by field \emph{pnTelefon}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_person <- function # select records from tblperson
 ### select and filter records from tblperson
@@ -1432,7 +1445,7 @@ kuras_person <- function # select records from tblperson
   ### order by field \emph{pnTelefon}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1462,7 +1475,7 @@ kuras_person <- function # select records from tblperson
     orderBy_pnTelefon = orderBy_pnTelefon
   )
 
-  selectFromTable(db, 'tblperson', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblperson', arguments, ...)
 }
 
 # kuras_projekt ----------------------------------------------------------------
@@ -1498,7 +1511,8 @@ kuras_person <- function # select records from tblperson
 #' @param orderBy_pAuftraggeberInstitutionID order by field \emph{pAuftraggeberInstitutionID}?
 #' @param orderBy_pBeschreibung order by field \emph{pBeschreibung}?
 #' @param orderBy_pProjektblattnummer order by field \emph{pProjektblattnummer}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_projekt <- function # select records from tblprojekt
 ### select and filter records from tblprojekt
@@ -1559,7 +1573,7 @@ kuras_projekt <- function # select records from tblprojekt
   ### order by field \emph{pProjektblattnummer}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1592,7 +1606,7 @@ kuras_projekt <- function # select records from tblprojekt
     orderBy_pProjektblattnummer = orderBy_pProjektblattnummer
   )
 
-  selectFromTable(db, 'tblprojekt', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblprojekt', arguments, ...)
 }
 
 # kuras_referenz ---------------------------------------------------------------
@@ -1634,7 +1648,8 @@ kuras_projekt <- function # select records from tblprojekt
 #' @param orderBy_rZusatz order by field \emph{rZusatz}?
 #' @param orderBy_rBeschreibung order by field \emph{rBeschreibung}?
 #' @param orderBy_rQualitaet order by field \emph{rQualitaet}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_referenz <- function # select records from tblreferenz
 ### select and filter records from tblreferenz
@@ -1707,7 +1722,7 @@ kuras_referenz <- function # select records from tblreferenz
   ### order by field \emph{rQualitaet}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1746,7 +1761,7 @@ kuras_referenz <- function # select records from tblreferenz
     orderBy_rQualitaet = orderBy_rQualitaet
   )
 
-  selectFromTable(db, 'tblreferenz', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblreferenz', arguments, ...)
 }
 
 # kuras_referenzgruppe ---------------------------------------------------------
@@ -1761,7 +1776,8 @@ kuras_referenz <- function # select records from tblreferenz
 #' @param select_rgID \code{select} field \emph{rgID}?
 #' @param orderBy ORDER BY clause of SQL expression
 #' @param orderBy_rgID order by field \emph{rgID}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_referenzgruppe <- function # select records from tblreferenzgruppe
 ### select and filter records from tblreferenzgruppe
@@ -1780,7 +1796,7 @@ kuras_referenzgruppe <- function # select records from tblreferenzgruppe
   ### order by field \emph{rgID}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1792,7 +1808,7 @@ kuras_referenzgruppe <- function # select records from tblreferenzgruppe
     orderBy_rgID = orderBy_rgID
   )
 
-  selectFromTable(db, 'tblreferenzgruppe', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblreferenzgruppe', arguments, ...)
 }
 
 # kuras_referenzgruppereferenz -------------------------------------------------
@@ -1813,7 +1829,8 @@ kuras_referenzgruppe <- function # select records from tblreferenzgruppe
 #' @param orderBy_rrID order by field \emph{rrID}?
 #' @param orderBy_rrReferenzGruppeID order by field \emph{rrReferenzGruppeID}?
 #' @param orderBy_rrReferenzID order by field \emph{rrReferenzID}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_referenzgruppereferenz <- function # select records from tblreferenzgruppereferenz
 ### select and filter records from tblreferenzgruppereferenz
@@ -1844,7 +1861,7 @@ kuras_referenzgruppereferenz <- function # select records from tblreferenzgruppe
   ### order by field \emph{rrReferenzID}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1862,7 +1879,7 @@ kuras_referenzgruppereferenz <- function # select records from tblreferenzgruppe
     orderBy_rrReferenzID = orderBy_rrReferenzID
   )
 
-  selectFromTable(db, 'tblreferenzgruppereferenz', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblreferenzgruppereferenz', arguments, ...)
 }
 
 # kuras_standort ---------------------------------------------------------------
@@ -1883,7 +1900,8 @@ kuras_referenzgruppereferenz <- function # select records from tblreferenzgruppe
 #' @param orderBy_oID order by field \emph{oID}?
 #' @param orderBy_oName order by field \emph{oName}?
 #' @param orderBy_oOrt order by field \emph{oOrt}?
-#' @param \dots additional arguments passed to \code{\link{selectFromTable}}
+#' @param db name of ODBC data source, default: \code{"KURAS"} 
+#' @param \dots additional arguments passed to \code{kwb.db::selectFromTable}
 #' 
 kuras_standort <- function # select records from tblstandort
 ### select and filter records from tblstandort
@@ -1914,7 +1932,7 @@ kuras_standort <- function # select records from tblstandort
   ### order by field \emph{oOrt}?
   db = 'KURAS',
   ...
-  ### additional arguments passed to \code{\link{selectFromTable}}
+  ### additional arguments passed to \code{kwb.db::selectFromTable}
 ) 
 {
   arguments <- list(
@@ -1932,5 +1950,5 @@ kuras_standort <- function # select records from tblstandort
     orderBy_oOrt = orderBy_oOrt
   )
 
-  selectFromTable(db, 'tblstandort', arguments, ...)
+  kwb.db::selectFromTable(db, 'tblstandort', arguments, ...)
 }

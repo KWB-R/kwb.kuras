@@ -64,7 +64,9 @@ kuras_anlageeigenschaftswert(
 
 \item{orderBy_awBeschreibung}{order by field \emph{awBeschreibung}?}
 
-\item{\dots}{additional arguments passed to \code{\link{selectFromTable}}}
+\item{db}{name of ODBC data source, default: \code{"KURAS"}}
+
+\item{\dots}{additional arguments passed to \code{kwb.db::selectFromTable}}
 }
 \description{
 \code{select} and filter records from tblanlageeigenschaftswert

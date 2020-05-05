@@ -64,7 +64,9 @@ kuras_institution(
 
 \item{orderBy_inBeschreibung}{order by field \emph{inBeschreibung}?}
 
-\item{\dots}{additional arguments passed to \code{\link{selectFromTable}}}
+\item{db}{name of ODBC data source, default: \code{"KURAS"}}
+
+\item{\dots}{additional arguments passed to \code{kwb.db::selectFromTable}}
 }
 \description{
 \code{select} and filter records from tblinstitution
