@@ -24,3 +24,4 @@ Remotes:
     github::kwb-r/kwb.plot,
     github::kwb-r/kwb.ogre
 Encoding: UTF-8
+RoxygenNote: 7.1.0
