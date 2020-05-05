@@ -8,8 +8,8 @@ kurasReferencesToRIS <- structure(
 {
   et.al.pattern <- " et al\\."
 
-  references$rNachname <- hsTrim(as.character(references$rNachname))
-  references$rVorname <- hsTrim(as.character(references$rVorname))
+  references$rNachname <- kwb.utils::hsTrim(as.character(references$rNachname))
+  references$rVorname <- kwb.utils::hsTrim(as.character(references$rVorname))
   
   et.al.indices <- unique(c(grep(et.al.pattern, references$rNachname),
                             grep(et.al.pattern, references$rVorname)))
@@ -19,10 +19,10 @@ kurasReferencesToRIS <- structure(
   
   references$rVorname[is.na(references$rVorname)] <- ""
   
-  references$rBeschreibung <- hsTrim(as.character(references$rBeschreibung))
+  references$rBeschreibung <- kwb.utils::hsTrim(as.character(references$rBeschreibung))
   references$rBeschreibung[is.na(references$rBeschreibung)] <- ""
   
-  references$rZusatz <- hsTrim(as.character(references$rZusatz))
+  references$rZusatz <- kwb.utils::hsTrim(as.character(references$rZusatz))
   references$rZusatz[is.na(references$rZusatz)] <- ""
   
   references$AU <- paste(references$rNachname,

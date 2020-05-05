@@ -5,9 +5,9 @@ beispielAuswertung.1 <- function # Beispiel-Auswertung 1
 (
 )
 {  
-  pdfFile <- preparePdfIf(TRUE, landscape = TRUE)
+  pdfFile <- kwb.utils::preparePdfIf(TRUE, landscape = TRUE)
   kuras_auswertung()
-  finishAndShowPdfIf(TRUE, pdfFile)
+  kwb.utils::finishAndShowPdfIf(TRUE, pdfFile)
 }
 
 # kuras_auswertung -------------------------------------------------------------
@@ -28,7 +28,7 @@ kuras_auswertung <- function # kuras_auswertung
   indikatorenProEffekt <- anzahlIndikatorenProEffekt(indikatoren, effekte)
   
   cat("\nAnzahl Indikatoren pro Effekt:\n")
-  print(hsRenameColumns(
+  print(kwb.utils::renameColumns(
     indikatorenProEffekt[, -1], 
     list(eName = "Effekt", x = "AnzahlIndikatoren")))
   
@@ -78,13 +78,13 @@ kuras_auswertung <- function # kuras_auswertung
 
     einheiten <- unique(mittelwerte.subset$iEinheit)
     
-    par(mfrow = c(length(einheiten), 1))
+    graphics::par(mfrow = c(length(einheiten), 1))
     
     for (einheit in einheiten) {
       is.of.unit <- mittelwerte.subset$iEinheit == einheit
       mittelwerte.subset2 <- mittelwerte.subset[is.of.unit, ]
       
-      boxplot(
+      graphics::boxplot(
         iwMittelwert ~ iName, 
         data = mittelwerte.subset2, 
         yaxt = "n",
@@ -97,7 +97,7 @@ kuras_auswertung <- function # kuras_auswertung
       )
       
       indikatorNames <- levels(as.factor(mittelwerte.subset2$iName))
-      axis(side = 2, at = 1:length(indikatorNames), labels = indikatorNames, las=1)
+      graphics::axis(side = 2, at = 1:length(indikatorNames), labels = indikatorNames, las=1)
     }
   }
 }
@@ -110,7 +110,7 @@ anzahlIndikatorenProEffekt <- function # Anzahl an Indikatoren pro Effekt
   effekte = kuras_effekt()
 )
 {
-  indikatorenProEffekt <- aggregate(
+  indikatorenProEffekt <- stats::aggregate(
     indikatoren$iEffektID, by=list(eID = indikatoren$iEffektID), length)
   
   indikatorenProEffekt <- merge(effekte, indikatorenProEffekt, all.x = TRUE)  
@@ -131,7 +131,7 @@ anzahlWerteProIndikator <- function # Anzahl an Werten pro Indikator
   indikatorwerte = kuras_indikatorwert()
 )
 {
-  werteProIndikator <- aggregate(
+  werteProIndikator <- stats::aggregate(
     indikatorwerte$iwID, 
     by = list(iID = indikatorwerte$iwIndikatorID), 
     length)  
@@ -152,7 +152,7 @@ anzahlWerteProIndikator <- function # Anzahl an Werten pro Indikator
 # .kuras.barplot ---------------------------------------------------------------
 .kuras.barplot <- function(values, names.arg, main)
 {
-  barplot(
+  graphics::barplot(
     height = values,      
     names.arg = names.arg,
     main = main,
