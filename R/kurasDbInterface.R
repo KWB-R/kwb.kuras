@@ -1200,8 +1200,8 @@ kuras_referenz <- function # select records from tblreferenz
   ### condition for field \emph{rZusatz}: Enter a field description here
   where_rBeschreibung = NA,
   ### condition for field \emph{rBeschreibung}: Enter a field description here
-  where_rQualität = NA,
-  ### condition for field \emph{rQualität}: Enter a field description here
+  where_rQualitaet = NA,
+  ### condition for field \emph{rQualitaet}: Enter a field description here
   select = NULL,
   ### fields/expressions to select
   select_rID = NA,
@@ -1222,8 +1222,8 @@ kuras_referenz <- function # select records from tblreferenz
   ### select field \emph{rZusatz}?
   select_rBeschreibung = NA,
   ### select field \emph{rBeschreibung}?
-  select_rQualität = NA,
-  ### select field \emph{rQualität}?
+  select_rQualitaet = NA,
+  ### select field \emph{rQualitaet}?
   orderBy = NULL,
   ### ORDER BY clause of SQL expression
   orderBy_rID = NA,
@@ -1244,8 +1244,8 @@ kuras_referenz <- function # select records from tblreferenz
   ### order by field \emph{rZusatz}?
   orderBy_rBeschreibung = NA,
   ### order by field \emph{rBeschreibung}?
-  orderBy_rQualität = NA,
-  ### order by field \emph{rQualität}?
+  orderBy_rQualitaet = NA,
+  ### order by field \emph{rQualitaet}?
   db = 'KURAS',
   ...
   ### additional arguments passed to \code{\link{selectFromTable}}
@@ -1262,7 +1262,7 @@ kuras_referenz <- function # select records from tblreferenz
     select_rTitelMedium = select_rTitelMedium,
     select_rZusatz = select_rZusatz,
     select_rBeschreibung = select_rBeschreibung,
-    select_rQualität = select_rQualität ,
+    select_rQualitaet = select_rQualitaet ,
     where = where,
     where_rID = where_rID,
     where_rNachname = where_rNachname,
@@ -1273,7 +1273,7 @@ kuras_referenz <- function # select records from tblreferenz
     where_rTitelMedium = where_rTitelMedium,
     where_rZusatz = where_rZusatz,
     where_rBeschreibung = where_rBeschreibung,
-    where_rQualität = where_rQualität ,
+    where_rQualitaet = where_rQualitaet ,
     orderBy = orderBy,
     orderBy_rID = orderBy_rID,
     orderBy_rNachname = orderBy_rNachname,
@@ -1284,7 +1284,7 @@ kuras_referenz <- function # select records from tblreferenz
     orderBy_rTitelMedium = orderBy_rTitelMedium,
     orderBy_rZusatz = orderBy_rZusatz,
     orderBy_rBeschreibung = orderBy_rBeschreibung,
-    orderBy_rQualität = orderBy_rQualität
+    orderBy_rQualitaet = orderBy_rQualitaet
   )
 
   selectFromTable(db, 'tblreferenz', arguments, ...)
