@@ -1,6 +1,6 @@
 Package: kwb.kuras
 Title: Interface to KURAS database
-Version: 0.0.99
+Version: 0.1.0
 Authors@R: 
     c(person(given = "Hauke",
              family = "Sonnenberg",
@@ -13,17 +13,16 @@ Description: Interface to KURAS database, DEVELOPMENT VERSION!!!
 License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.kuras
 BugReports: https://github.com/KWB-R/kwb.kuras/issues
-Imports:
-    kwb.db,
-    kwb.monitoring,
-    kwb.ogre,
-    kwb.plot,
-    kwb.utils
-Remotes: 
-    github::kwb-r/kwb.db,
-    github::kwb-r/kwb.logger,
-    github::kwb-r/kwb.ogre,
-    github::kwb-r/kwb.plot,
-    github::kwb-r/kwb.utils
 Encoding: UTF-8
 RoxygenNote: 7.1.0
+Depends:
+    kwb.kuras.db
+Imports:
+    kwb.monitoring,
+    kwb.ogre,
+    kwb.utils
+Remotes:
+    github::kwb-r/kwb.monitoring,
+    github::kwb-r/kwb.ogre,
+    github::kwb-r/kwb.kuras.db,
+    github::kwb-r/kwb.utils

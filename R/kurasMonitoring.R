@@ -1,10 +1,34 @@
+#' @importFrom kwb.kuras.db anzahlIndikatorenProEffekt
+#' @importFrom kwb.kuras.db anzahlWerteProIndikator
+#' @importFrom kwb.kuras.db beispielAuswertung.1
+#' @importFrom kwb.kuras.db kuras_anlageeigenschaft
+#' @importFrom kwb.kuras.db kuras_anlageeigenschaftswert
+#' @importFrom kwb.kuras.db kuras_anlageoderstudie
+#' @importFrom kwb.kuras.db kuras_effekt
+#' @importFrom kwb.kuras.db kuras_indikator
+#' @importFrom kwb.kuras.db kuras_indikatorwert
+#' @importFrom kwb.kuras.db kuras_institution
+#' @importFrom kwb.kuras.db kuras_kommentar
+#' @importFrom kwb.kuras.db kuras_koordinatensystem
+#' @importFrom kwb.kuras.db kuras_massnahmeebene
+#' @importFrom kwb.kuras.db kuras_massnahmenkategorie
+#' @importFrom kwb.kuras.db kuras_massnahmetyp
+#' @importFrom kwb.kuras.db kuras_person
+#' @importFrom kwb.kuras.db kuras_projekt
+#' @importFrom kwb.kuras.db kuras_referenz
+#' @importFrom kwb.kuras.db kuras_referenzgruppe
+#' @importFrom kwb.kuras.db kuras_referenzgruppereferenz
+#' @importFrom kwb.kuras.db kuras_standort
+
 # readKurasSamplerFileByName ---------------------------------------------------
+NULL
 
 #' Read KURAS Sampler File by Name
 #' 
 #' @param samplerFile path to file written by autosampler
 #' @param bottlesToConsider arguments passed to
 #'   \code{\link{generateSampleTimesFromFlaschenbericht}}
+#' @importFrom kwb.ogre readOgreSamplerFileByName
 #' @export
 readKurasSamplerFileByName <- function(samplerFile, bottlesToConsider = NA)
 {
@@ -67,6 +91,7 @@ readKurasSamplerFileByName.R <- function(samplerFile)
 #'   success
 #' @param text.failure text to be put in output column \code{result} in case of
 #'   failure
+#' @importFrom kwb.utils checkForMissingColumns
 #' @export
 generateSampleTimesFromFlaschenbericht <- function(
   content, text.success = "SUCCESS", text.failure = "FAILURE"  
