@@ -7,22 +7,28 @@ Authors@R:
              role = c("aut", "cre"),
              email = "hauke.sonnenberg@kompetenz-wasser.de",
              comment = c(ORCID = "0000-0001-9134-2871")),
-      person(given = "Kompetenzzentrum Wasser Berlin gGmbH",
+      person(given = "Michael",
+             family = "Rustler",
+             role = "ctb",
+             email = "michael.rustler@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0003-0647-7726")),
+      person(given = "KURAS",
+             role = "fnd"),
+      person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
              role = "cph"))
-Description: Interface to KURAS database, DEVELOPMENT VERSION!!!
+Description: Interface to KURAS database
 License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.kuras
 BugReports: https://github.com/KWB-R/kwb.kuras/issues
-Encoding: UTF-8
-RoxygenNote: 7.1.0
-Depends:
-    kwb.kuras.db
 Imports:
+    kwb.kuras.db,
     kwb.monitoring,
     kwb.ogre,
     kwb.utils
 Remotes:
+    github::kwb-r/kwb.kuras.db,
     github::kwb-r/kwb.monitoring,
     github::kwb-r/kwb.ogre,
-    github::kwb-r/kwb.kuras.db,
     github::kwb-r/kwb.utils
+Encoding: UTF-8
+RoxygenNote: 7.1.0
