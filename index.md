@@ -4,7 +4,7 @@
 [![Project Status](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/kwb.kuras)]()
 
-Interface to KURAS database
+Interface to KURAS database.
 
 ## Installation
 

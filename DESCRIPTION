@@ -16,7 +16,7 @@ Authors@R:
              role = "fnd"),
       person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
              role = "cph"))
-Description: Interface to KURAS database
+Description: Interface to KURAS database.
 License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.kuras
 BugReports: https://github.com/KWB-R/kwb.kuras/issues
@@ -31,4 +31,4 @@ Remotes:
     github::kwb-r/kwb.ogre,
     github::kwb-r/kwb.utils
 Encoding: UTF-8
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1

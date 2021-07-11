@@ -6,7 +6,7 @@
 
 # kwb.kuras
 
-Interface to KURAS database
+Interface to KURAS database.
 
 ## Installation
 
