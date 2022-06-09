@@ -4,3 +4,4 @@
 ^index\.md$
 ^README\.md$
 ^\.github$
+^_pkgdown\.yml$
